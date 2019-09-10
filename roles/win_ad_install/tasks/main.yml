@@ -15,6 +15,7 @@
   win_domain:
     dns_domain_name:  "{{ ad_domain_name }}"
     safe_mode_password: "{{ ad_safe_mode_password }}" 
+  register: win_domain
 
 - name: Print out the domain
   win_command: nltest /dclist:"{{ ad_domain_name }}"
@@ -31,4 +32,4 @@
 ##   state: present
 - name: Reboot if required
   win_reboot:
-  when: win_feature.reboot_required
+  when: win_feature.reboot_required or win_domain.reboot_required
