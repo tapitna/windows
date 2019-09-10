@@ -1,0 +1,5 @@
+---
+- name: Install SSHD
+  hosts: windows
+  roles:
+   - { name: win_service_config }

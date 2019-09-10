@@ -1,0 +1,11 @@
+---
+#tasks for install SSH
+- name: 
+  debug:
+    msg: "{{ ansible_distribution }}"
+   
+- name: InstallSSH
+  win_chocolatey:
+    name: "{{ package_name }}" 
+    state: present 
+  when: ("{{ ansible_distribution }}"== "Microsoft Windows Server 2012 R2 Standard")
