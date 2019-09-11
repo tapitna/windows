@@ -1,0 +1,15 @@
+---
+- name: Add users
+  debug:
+    msg: "{{ user_info }}"
+
+- name: Add users to AD
+  win_domain_user: 
+    name: "{{item.name}}"
+    firstname: "{{item.first_name}}"
+#    surname: "{{item.last_name}}"
+    email: "{{item.email}}"    
+    password: "{{item.password}}"
+    groups: "{{item.group_name}}"
+    state: present
+  loop: "{{ user_info }}" 

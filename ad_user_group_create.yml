@@ -1,0 +1,5 @@
+---
+- name: Create users
+  hosts: windows
+  roles:
+    - {name: win_ad_user}
