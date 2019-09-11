@@ -1,5 +1,7 @@
 ---
 - name: Install SSHD
   hosts: windows
+  vars_files:
+   - /root/ssh_var.yml
   roles:
    - { name: win_service_config }
